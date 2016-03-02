@@ -29,6 +29,13 @@ public class Response<T> {
         public void onResponse(T response);
     }
 
+    public interface CallerCallBack {
+        /**
+         * Should be called after onReponse is proceded
+         */
+        public void handleResponse(Object... objects);
+    }
+
     /** Callback interface for delivering error responses. */
     public interface ErrorListener {
         /**
@@ -82,4 +89,5 @@ public class Response<T> {
         this.cacheEntry = null;
         this.error = error;
     }
+
 }
